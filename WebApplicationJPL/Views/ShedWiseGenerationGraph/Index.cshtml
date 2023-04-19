@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ShedWiseGenerationGraph>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <style>
+        
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <div class="text-center">
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Index">
+            <span>  All Shed </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed1">
+            <span> Shed-1 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed2">
+            <span>  Shed-2 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed3And4">
+            <span>  Shed-3&4 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed5">
+            <span>  Shed-5 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed6">
+            <span>  Shed-6 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed7">
+            <span>  Shed-7 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed8">
+            <span>  Shed-8 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed10">
+            <span>  Shed-10 </span>
+        </a>
+        <a class="btn btn-primary text-white ShedWiseGenerationGraph-2 btn-sm" asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed11">
+            <span>  Shed-11 </span>
+        </a>
+        <a class="btn btn-primary text-white btn-sm " asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Shed12">
+            <span>  Shed-12 </span>
+        </a>
+
+    </div>
+    
+    <br />
+    <div class="table-responsive tbl-scroll">
+        <h3 class="text-center border"> All Shed Generation Table </h3>
+
+        <table class=" table table-bordered table-striped  align-middle">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Shed 1 </th>
+                    <th> Shed 2 </th>
+                    <th> Shed 3 & 4 </th>
+                    <th> Shed 5 </th>
+                    <th> Shed 6 </th>
+                    <th> Shed 7 </th>
+                    <th> Shed 8 </th>
+                    <th> Shed 10 </th>
+                    <th> Shed 11 </th>
+                    <th> Shed 12 </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Time</td>
+                        <td>@obj.Shed1</td>
+                        <td>@obj.Shed2</td>
+                        <td>@obj.Shed3And4</td>
+                        <td>@obj.Shed5</td>
+                        <td>@obj.Shed6</td>
+                        <td>@obj.Shed7</td>
+                        <td>@obj.Shed8</td>
+                        <td>@obj.Shed10</td>
+                        <td>@obj.Shed11</td>
+                        <td>@obj.Shed12</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

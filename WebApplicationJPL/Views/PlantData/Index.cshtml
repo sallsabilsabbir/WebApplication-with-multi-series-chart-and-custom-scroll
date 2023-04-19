@@ -1,0 +1,79 @@
+﻿@model List<PlantDatum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <style>
+
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <div class="text-center">
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="Index">
+            <span>  All Data </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="Import">
+            <span>  Import </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="Export">
+            <span> Export </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="PlantNetGeneration">
+            <span>  Plant Net Generation </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="TodayImport">
+            <span>  Todays Import </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="TodayExport">
+            <span>  Todays Export </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="PlantData" asp-action="TodayNetGeneration">
+            <span>  Todays Net Generation </span>
+        </a>
+
+    </div>
+    <br />
+
+    <div class="table-responsive tbl-scroll">
+        <h5 class="text-center border">  Plant Data </h5>
+
+        <table class=" table table-bordered table-striped  align-middle">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Import </th>
+                    <th> Export </th>
+                    <th> PlantNetGeneration </th>
+                    <th> TodayImport </th>
+                    <th> TodayExport </th>
+                    <th> TodayNetGeneration </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Time</td>
+                        <td>@obj.Import</td>
+                        <td>@obj.Export</td>
+                        <td>@obj.PlantNetGeneration</td>
+                        <td>@obj.TodayImport</td>
+                        <td>@obj.TodayExport</td>
+                        <td>@obj.TodayNetGeneration</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

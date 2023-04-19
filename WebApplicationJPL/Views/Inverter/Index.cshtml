@@ -1,0 +1,227 @@
+﻿@model InverterModels
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="d-flex justify-content-evenly ">
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterAcPower" href="#collapseinverterAcPower" aria-expanded="true">
+                Ac Power
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterDcPower" href="#collapseinverterDcPower" aria-expanded="true">
+                Dc Power
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterEfficiency" href="#collapseinverterEfficiency" aria-expanded="true">
+                Efficiency
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterTotalAcPower" href="#collapseinverterTotalAcPower" aria-expanded="true">
+                Total Ac Power
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterTotalDcPower" href="#collapseinverterTotalDcPower" aria-expanded="true">
+                Total Dc Power
+            </button>
+        </p>
+    </div>
+
+    <div>
+
+        <div>
+            <div class="collapse" id="collapseinverterAcPower">
+
+                <h5 class="text-center text-black border">Inverter Ac Power</h5>
+
+                <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id">
+                    <thead>
+                        <tr>
+                            <th>  Time </th>
+                            <th>  Shed 1 </th>
+                            <th>  Shed 2 </th>
+                            <th>  Shed 3&4</th>
+                            <th>  Shed 5</th>
+                            <th>  Shed 6</th>
+                            <th>  Shed 7</th>
+                            <th>  Shed 8</th>
+                            <th>  Shed 10</th>
+                            <th>  Shed 11</th>
+                            <th>  Shed 12</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var inverterAcPower in Model.InverterAcPowers)
+                        {
+                            <tr>
+                                <td> @inverterAcPower.Time </td>
+                                <td> @inverterAcPower.Shed1 </td>
+                                <td> @inverterAcPower.Shed2 </td>
+                                <td> @inverterAcPower.Shed3And4 </td>
+                                <td> @inverterAcPower.Shed5 </td>
+                                <td> @inverterAcPower.Shed6 </td>
+                                <td> @inverterAcPower.Shed7 </td>
+                                <td> @inverterAcPower.Shed8 </td>
+                                <td> @inverterAcPower.Shed10 </td>
+                                <td> @inverterAcPower.Shed11 </td>
+                                <td> @inverterAcPower.Shed12 </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterDcPower">
+
+            <h5 class="text-center text-black border">Inverter Dc Power</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-2">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Shed 1 </th>
+                        <th>  Shed 2 </th>
+                        <th>  Shed 3&4</th>
+                        <th>  Shed 5</th>
+                        <th>  Shed 6</th>
+                        <th>  Shed 7</th>
+                        <th>  Shed 8</th>
+                        <th>  Shed 10</th>
+                        <th>  Shed 11</th>
+                        <th>  Shed 12</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var inverterDcPower in Model.InverterDcPowers)
+                    {
+                        <tr>
+                            <td> @inverterDcPower.Time </td>
+                            <td> @inverterDcPower.Shed1 </td>
+                            <td> @inverterDcPower.Shed2 </td>
+                            <td> @inverterDcPower.Shed3And4 </td>
+                            <td> @inverterDcPower.Shed5 </td>
+                            <td> @inverterDcPower.Shed6 </td>
+                            <td> @inverterDcPower.Shed7 </td>
+                            <td> @inverterDcPower.Shed8 </td>
+                            <td> @inverterDcPower.Shed10 </td>
+                            <td> @inverterDcPower.Shed11 </td>
+                            <td> @inverterDcPower.Shed12 </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterEfficiency">
+            <h5 class="text-center text-black border">Inverter Efficiency</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-3">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Shed 1 </th>
+                        <th>  Shed 2 </th>
+                        <th>  Shed 3&4</th>
+                        <th>  Shed 5</th>
+                        <th>  Shed 6</th>
+                        <th>  Shed 7</th>
+                        <th>  Shed 8</th>
+                        <th>  Shed 10</th>
+                        <th>  Shed 11</th>
+                        <th>  Shed 12</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var inverterEfficiency in Model.InverterEfficiencys)
+                    {
+                        <tr>
+                            <td> @inverterEfficiency.Time </td>
+                            <td> @inverterEfficiency.Shed1 </td>
+                            <td> @inverterEfficiency.Shed2 </td>
+                            <td> @inverterEfficiency.Shed3And4 </td>
+                            <td> @inverterEfficiency.Shed5 </td>
+                            <td> @inverterEfficiency.Shed6 </td>
+                            <td> @inverterEfficiency.Shed7 </td>
+                            <td> @inverterEfficiency.Shed8 </td>
+                            <td> @inverterEfficiency.Shed10 </td>
+                            <td> @inverterEfficiency.Shed11 </td>
+                            <td> @inverterEfficiency.Shed12 </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterTotalAcPower">
+
+            <h5 class="text-center text-black border">Inverter Total Ac Power</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-4">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th> Total Ac Power </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var inverterTotalAcPower in Model.InverterTotalAcPowers)
+                    {
+                        <tr>
+                            <td> @inverterTotalAcPower.Time </td>
+                            <td> @inverterTotalAcPower.InverterTotalAcPower1 </td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterTotalDcPower">
+
+            <h5 class="text-center text-black border">Inverter Total Dc Power</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-5">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th> Total Dc Power </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var inverterTotalDcPower in Model.InverterTotalDcPowers)
+                    {
+                        <tr>
+                            <td> @inverterTotalDcPower.Time </td>
+                            <td> @inverterTotalDcPower.InverterTotalDcPower1 </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+

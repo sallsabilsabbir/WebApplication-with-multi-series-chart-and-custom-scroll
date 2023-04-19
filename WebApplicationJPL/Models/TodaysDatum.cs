@@ -1,0 +1,19 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplicationJPL.Models;
+
+public partial class TodaysDatum
+{
+    
+    public DateTime? Time { get; set; }
+
+    public float? Energy { get; set; }
+
+    public float? Pr { get; set; }
+
+    public float? AcMaxPower { get; set; }
+
+    public float? DcMaxPower { get; set; }
+
+    public float? SpecificEnergy { get; set; }
+}

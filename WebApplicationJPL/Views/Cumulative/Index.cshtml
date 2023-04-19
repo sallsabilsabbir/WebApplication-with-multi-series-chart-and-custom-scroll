@@ -1,0 +1,75 @@
+﻿@model CumulatuiveModels
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+
+    <div class="col-6 col-md-6">
+        <p>
+            <a class="btn btn-primary col-6 col-md-6" data-bs-toggle="collapse" href="#collapseCumulativePoaAvg" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Cumulative Poa Avg
+            </a>
+        </p>
+
+        <div class="collapse" id="collapseCumulativePoaAvg">
+            <table class="table table-striped" id="table_id">
+
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Cumulative Poa Avg </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var cumulativePoaAvg in Model.CumulativePoaAvgs)
+                    {
+                        <tr>
+                            @*<td> @row.Time </td>*@
+                            <td>@Html.DisplayFor(modelItem=>cumulativePoaAvg.Time)</td>
+                            <td> @cumulativePoaAvg.CumulativePoaAvg1 </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="col-6 col-md-6">
+        <p>
+            <a class="btn btn-primary col-6 col-md-6" data-bs-toggle="collapse" href="#collapseCumulatuivePr" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Cumulatuive Pr
+            </a>
+        </p>
+
+        <div class="collapse" id="collapseCumulatuivePr">
+            <table class="table table-striped" id="table_id-2">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Cumulatuive Pr </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var cumulatuivePr in Model.CumulatuivePrs)
+                    {
+                        <tr>
+                            @*<td> @row.Time </td>*@
+                            <td>@Html.DisplayFor(modelItem=>cumulatuivePr.Time)</td>
+                            <td> @cumulatuivePr.CumulatuivePr1 </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,202 @@
+﻿@model IEnumerable<Pr>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <canvas id="myChart" style="max-height:350px; max-width:100%"></canvas>
+
+    @*<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1"></script>
+    <canvas id="myChart"></canvas>*@
+
+    @section scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/0.7.7/chartjs-plugin-zoom.min.js"></script>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.Select(x => x.Time))),
+                    datasets: [
+                        {
+                            label: 'Shed 1',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.Shed1))),
+                            backgroundColor: 'rgba(58, 96, 246, 0.7)',
+                            borderColor: 'rgba(60, 56, 246, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Shed 2',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.Shed2))),
+                            backgroundColor: 'rgba(246, 58, 96, 0.7)',
+                            borderColor: 'rgba(246, 56, 60, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Shed 3 and 4',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.Shed3And4))),
+                            backgroundColor: 'rgba(96, 246, 58, 0.7)',
+                            borderColor: 'rgba(56, 246, 60, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Shed 5',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.Shed5))),
+                            backgroundColor: 'rgba(246, 96, 58, 0.7)',
+                            borderColor: 'rgba(246, 60, 56, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        },
+                        {
+                            label: 'Shed 6',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.Shed6))),
+                            backgroundColor: 'rgba(246, 96, 58, 0.7)',
+                            borderColor: 'rgba(246, 60, 56, 1)',
+                            borderWidth: 1,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                maxTicksLimit: 20
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'X Axis Label'
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 1000,
+                                beginAtZero: true
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Y Axis Label'
+                            }
+                        }]
+                    },
+                    plugins: {
+                        zoom: {
+                            zoom: {
+                                enabled: true,
+                                mode: 'x'
+                            },
+                            pan: {
+                                enabled: true,
+                                mode: 'x'
+                            }
+                        }
+                    }
+                }
+            });
+
+
+        </script>
+    }
+</div>
+
+
+<div>
+    <style>
+        
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <div class="text-center">
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Index">
+            <span>  All Shed </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed1">
+            <span> Shed-1 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed2">
+            <span>  Shed-2 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed3And4">
+            <span>  Shed-3&4 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed5">
+            <span>  Shed-5 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed6">
+            <span>  Shed-6 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed7">
+            <span>  Shed-7 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed8">
+            <span>  Shed-8 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed10">
+            <span>  Shed-10 </span>
+        </a>
+        <a class="btn btn-primary text-white pr-2 btn-sm" asp-area="" asp-controller="Pr" asp-action="Shed11">
+            <span>  Shed-11 </span>
+        </a>
+        <a class="btn btn-primary text-white btn-sm " asp-area="" asp-controller="Pr" asp-action="Shed12">
+            <span>  Shed-12 </span>
+        </a>
+
+    </div>
+    
+    <br />
+    <div class="table-responsive tbl-scroll">
+        <h3 class="text-center border"> All Shed Pr Table </h3>
+
+        <table class=" table table-bordered table-striped  align-middle">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Shed 1 </th>
+                    <th> Shed 2 </th>
+                    <th> Shed 3 & 4 </th>
+                    <th> Shed 5 </th>
+                    <th> Shed 6 </th>
+                    <th> Shed 7 </th>
+                    <th> Shed 8 </th>
+                    <th> Shed 10 </th>
+                    <th> Shed 11 </th>
+                    <th> Shed 12 </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Time</td>
+                        <td>@obj.Shed1</td>
+                        <td>@obj.Shed2</td>
+                        <td>@obj.Shed3And4</td>
+                        <td>@obj.Shed5</td>
+                        <td>@obj.Shed6</td>
+                        <td>@obj.Shed7</td>
+                        <td>@obj.Shed8</td>
+                        <td>@obj.Shed10</td>
+                        <td>@obj.Shed11</td>
+                        <td>@obj.Shed12</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

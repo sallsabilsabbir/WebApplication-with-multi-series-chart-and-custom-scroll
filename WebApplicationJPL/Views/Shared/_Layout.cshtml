@@ -1,0 +1,514 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JPL-Dashboard</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/WebApplicationJPL.styles.css" asp-append-version="true" />
+
+
+    <!--fontawesome for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/fontawesome-free/css/fontawesome.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/fontawesome-free/css/brands.css" rel="stylesheet" type="text/css">
+    <link href="~/vendor/fontawesome-free/css/regular.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom fonts for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+@*------------------------------------------------------------------------------------------------------------------------------------------------------------*@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Dashboard" asp-action="Index">
+                <div class="sidebar-brand-icon rounded-circle bg-light">
+                    <img width ="35px" height="35px"  src="~/img/logo.png" />
+                </div>
+                <div class="sidebar-brand-text mx-2">SCADA-SCUBE</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0"/>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="Dashboard" asp-action="Index">
+                    <i class="fa fa-desktop"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0"/>
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Temperature" asp-action="Index">
+                    <i class="fas fa-fw fa-thermometer-1"></i>
+                    <span>Temperature</span>
+                </a>
+
+            </li>
+            @*<li class="nav-item">
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseTemperature"
+                   aria-expanded="true" aria-controls="collapseTemperature">
+                    <i class="fas fa-fw fa-thermometer-1"></i>
+                    <span> Temperature </span>
+                </a>
+                <div id="collapseTemperature" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-primary rounded">
+
+                        <a class="nav-link text-white pb-0 pt-2 " asp-area="" asp-controller="AmbientTemp" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> AmbientTemp</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-2" asp-area="" asp-controller="ModuleTemp" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> ModuleTemp</span>
+                        </a>
+                    </div>
+                </div>
+            </li>*@
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Cumulative" asp-action="Index">
+                    <i class="fa-sharp fa-solid fa-chart-simple"></i>
+                    <span>Cumulative</span>
+                </a>
+
+            </li>
+           @* <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCumulatuive"
+                   aria-expanded="true" aria-controls="collapseCumulatuive">
+                    <i class="fa-sharp fa-solid fa-chart-simple"></i>
+                    <span>Cumulatuive</span>
+                </a>
+                <div id="collapseCumulatuive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-primary rounded">
+                       
+
+                        <a class="nav-link text-white pb-0 pt-2 " asp-area="" asp-controller="CumulativePoaAvg" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> PoaAvg</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-2" asp-area="" asp-controller="CumulatuivePr" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> Pr</span>
+                        </a>
+                    </div>
+                </div>
+            </li>*@
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Inverter" asp-action="Index">
+                    <i class="fas fa-car-battery"></i>
+                    <span>Inverter</span>
+                </a>
+
+            </li>
+            @*<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInverter"
+                   aria-expanded="true" aria-controls="collapseInverter">
+                    <i class="fas fa-car-battery"></i>
+                    <span>Inverter</span>
+                </a>
+                <div id="collapseInverter" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-primary rounded">
+
+                        <a class="nav-link text-white pb-0 pt-2 " asp-area="" asp-controller="InverterAcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> AcPower</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-0" asp-area="" asp-controller="InverterDcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> DcPower</span>
+                        </a>
+                        <a class="nav-link text-white pb-0 pt-0 " asp-area="" asp-controller="InverterEfficiency" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> Efficiency</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-0" asp-area="" asp-controller="InverterTotalAcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> TotalAcPower</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-2" asp-area="" asp-controller="InverterTotalDcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> TotalDcPower</span>
+                        </a>
+                    </div>
+                </div>
+            </li>*@
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="LivePower" asp-action="Index">
+                    <i class="fa-solid fa-plug-circle-bolt"></i>
+                    <span>LivePower</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Power" asp-action="Index">
+                    <i class="fas fa-bolt"></i>
+                    <span>Max Powers</span>
+                </a>
+
+            </li>
+            @*<li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePower"
+                   aria-expanded="true" aria-controls="collapsePower">
+                    <i class="fas fa-bolt"></i>
+                    <span>Power</span>
+                </a>
+                <div id="collapsePower" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-primary rounded"> 
+
+                        <a class="nav-link text-white pb-0 pt-2 " asp-area="" asp-controller="LivePower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> LivePower</span>
+                        </a>
+                        <a class="nav-link text-white pt-0 pb-0" asp-area="" asp-controller="MaxAcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> MaxAcPower</span>
+                        </a>
+                        <a class="nav-link text-white pb-2 pt-0" asp-area="" asp-controller="MaxDcPower" asp-action="Index">
+                            <i class="fas fa-fw fa-play"></i>
+                            <span> MaxDcPower</span>
+                        </a>
+                    </div>
+                </div>
+            </li>*@
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Energy" asp-action="Index">
+                    <i class="fas fa-grip"></i>
+                    <span>Energy</span>
+                </a>
+
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="PoaAvg" asp-action="Index">
+                    <i class="fas fa-grip"></i>
+                    <span>PoaAvg</span>
+                </a>
+
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Pr" asp-action="Index">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Pr</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Generation" asp-action="Index">
+                    <i class="fas fa-atom"></i>
+                    <span>Generation</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="LifetimeGeneration" asp-action="Index">
+                    <i class="fas fa-atom"></i>
+                    <span>Lifetime Generation</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="ShedWiseGenerationGraph" asp-action="Index">
+                    <i class="fas fa-atom"></i>
+                    <span>Shed Wise Generation</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="TodaysData" asp-action="Index">
+                    <i class="fas fa-dashboard"></i>
+                    <span>Todays Data</span>
+                </a>
+
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="YesterdaysData" asp-action="Index">
+                    <i class="fas fa-dashboard"></i>
+                    <span>Yesterdays Data</span>
+                </a>
+
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="Plantdata" asp-action="Index">
+                    <i class="fas fa-dashboard"></i>
+                    <span>PlantData</span>
+                </a>
+
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link " asp-area="" asp-controller="SavingsAndProfit" asp-action="Index">
+                    <i class="fa fa-diagram-predecessor"></i>
+                    <span>Savings & Profit</span>
+                </a>
+
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+        @*---------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                     src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                @*-------------------------------------------------------------------------------------------------------------------------------------------*@
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="row">
+                        @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+                        @*<div class="container">*@
+                            <main role="main" class="pb-3">
+                                @RenderBody()
+                            </main>
+                        @*</div>*@
+
+                    </div>
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            @*-----------------------------------------------------------------------------------------------------------------------------------------------*@
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>&copy; All Rights Reserved Scube Technologies Ltd. </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    @*-------------------------------------------------------------------------------------------------------------------------------------------------------*@
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    @*-------------------------------------------------------------------------------------------------------------------------------------------------------*@
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
+    <script type="text/javascript" src="https://example.com/fontawesome/v6.3.0/js/conflict-detection.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+
+    <!-- Table pagination -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+
+                "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 5,
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id-2').DataTable({
+
+                "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 5,
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id-3').DataTable({
+
+                "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 5,
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id-4').DataTable({
+
+                "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 5,
+
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id-5').DataTable({
+
+                "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+                "iDisplayLength": 5,
+
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg
+  width="24px"
+  height="24px"
+  viewBox="0 0 24 24"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+
+ 
+    <defs>
+        <path
+      d="M19,12 L19,4 C19,2.34 17.66,1 16,1 C14.34,1 13,2.34 13,4 L13,12 C11.79,12.91 11,14.37 11,16 C11,18.76 13.24,21 16,21 C18.76,21 21,18.76 21,16 C21,14.37 20.21,12.91 19,12 Z M15,4 C15,3.45 15.45,3 16,3 C16.55,3 17,3.45 17,4 L16,4 L16,5 L17,5 L17,7 L16,7 L16,8 L17,8 L17,10 L15,10 L15,4 Z"
+      id="path-1"
+    />
+    </defs>
+    <g
+    id="Modultemperatur"
+    stroke="none"
+    stroke-width="1"
+    fill="none"
+    fill-rule="evenodd"
+  >
+        <g
+      id="Group-2"
+      transform="translate(1.000000, 12.000000)"
+      fill="#55595C"
+      stroke="#55595C"
+    >
+            <rect id="Rectangle" x="4.5" y="5.5" width="1" height="5" />
+            <rect
+        id="Rectangle-Copy"
+        transform="translate(5.748699, 5.662393) rotate(-43.000000) translate(-5.748699, -5.662393) "
+        x="5.24869907"
+        y="0.162392985"
+        width="1"
+        height="11"
+      />
+        </g>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1" />
+        </mask>
+        <use
+      id="icon/device/thermostat_24px"
+      fill="#55595C"
+      fill-rule="nonzero"
+      xlink:href="#path-1"
+    />
+    </g>
+</svg>

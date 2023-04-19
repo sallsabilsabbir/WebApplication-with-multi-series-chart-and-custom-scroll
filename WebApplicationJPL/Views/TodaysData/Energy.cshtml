@@ -1,0 +1,128 @@
+﻿@model List<TodaysDatum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <style>
+
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <div class="text-center">
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Index">
+            <span>  All Data </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Energy">
+            <span>  Energy </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Pr">
+            <span> Pr </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="AcMaxPower">
+            <span>  AcMaxPower </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="DcMaxPower">
+            <span>  DcMaxPower </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="SpecificEnergy">
+            <span>  SpecificEnergy </span>
+        </a>
+
+    </div>
+
+    <div>
+        <canvas id="myChart" style="max-height:350px; max-width:100%"></canvas>
+
+        @*<script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1"></script>
+        <canvas id="myChart"></canvas>*@
+
+        @section scripts {
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/0.7.7/chartjs-plugin-zoom.min.js"></script>
+            <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: @Html.Raw(Json.Serialize(Model.Select(x => x.Time))),
+                        datasets: [{
+                            label: '',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x=>x.Energy).ToList())),
+                            backgroundColor: 'rgba(58, 96, 246, 0.7)',
+                            borderColor: 'rgba(60, 56, 246, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    maxTicksLimit: 20
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'X Axis Label'
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                    min: 0,
+                                    max: 10000000,
+                                    beginAtZero: true
+                                },
+                                scaleLabel: {
+
+                                    display: true,
+                                    labelString: 'Y Axis Label'
+                                }
+                            }]
+                        },
+                        plugins: {
+                            zoom: {
+                                zoom: {
+                                    enabled: true,
+                                    mode: 'x'
+                                },
+                                pan: {
+                                    enabled: true,
+                                    mode: 'x'
+                                }
+                            }
+                        }
+                    }
+                });
+
+            </script>
+        }
+    </div>
+    <hr />
+    <div class="table-responsive tbl-scroll">
+        <h5 class="text-center border"> Todays Energy </h5>
+
+        <table class=" table table-bordered table-striped ">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Todays Energy </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem=>obj.Time)</td>
+                        @*<td>@obj.Time</td>*@
+                        <td>@obj.Energy</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

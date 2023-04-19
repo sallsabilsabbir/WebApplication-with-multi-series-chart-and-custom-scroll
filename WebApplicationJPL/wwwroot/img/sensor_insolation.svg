@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg
+  width="24px"
+  height="24px"
+  viewBox="0 0 24 24"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+
+
+    <g
+    id="Einstrahlung_Icon"
+    stroke="none"
+    stroke-width="1"
+    fill="none"
+    fill-rule="evenodd"
+  >
+        <g id="Group-2" transform="translate(1.000000, 1.000000)">
+            <rect
+        id="Rectangle"
+        stroke="#55595C"
+        fill="#55595C"
+        x="4.5"
+        y="16.5"
+        width="1"
+        height="5"
+      />
+            <rect
+        id="Rectangle-Copy"
+        stroke="#55595C"
+        fill="#55595C"
+        transform="translate(5.748699, 16.662393) rotate(-52.000000) translate(-5.748699, -16.662393) "
+        x="5.24869907"
+        y="11.162393"
+        width="1"
+        height="11"
+      />
+            <g id="Group" transform="translate(3.000000, 0.000000)">
+                <rect
+          id="Rectangle"
+          stroke="#55595C"
+          fill="#D8D8D8"
+          x="10.5"
+          y="11.5"
+          width="1"
+          height="4"
+        />
+                <rect
+          id="Rectangle"
+          stroke="#55595C"
+          fill="#D8D8D8"
+          transform="translate(6.179093, 11.745333) rotate(40.000000) translate(-6.179093, -11.745333) "
+          x="5.67909293"
+          y="9.74533332"
+          width="1"
+          height="4"
+        />
+                <rect
+          id="Rectangle"
+          stroke="#55595C"
+          fill="#D8D8D8"
+          transform="translate(3.613942, 7.302361) rotate(80.000000) translate(-3.613942, -7.302361) "
+          x="3.11394185"
+          y="5.30236133"
+          width="1"
+          height="4"
+        />
+                <rect
+          id="Rectangle"
+          stroke="#55595C"
+          fill="#D8D8D8"
+          transform="translate(4.504809, 2.250000) rotate(120.000000) translate(-4.504809, -2.250000) "
+          x="4.00480947"
+          y="0.25"
+          width="1"
+          height="4"
+        />
+                <rect
+          id="Rectangle"
+          stroke="#55595C"
+          fill="#D8D8D8"
+          transform="translate(15.820907, 11.745333) rotate(320.000000) translate(-15.820907, -11.745333) "
+          x="15.3209071"
+          y="9.74533332"
+          width="1"
+          height="4"
+        />
+                <circle id="Oval" fill="#55595C" cx="11" cy="6" r="4" />
+            </g>
+        </g>
+    </g>
+</svg>

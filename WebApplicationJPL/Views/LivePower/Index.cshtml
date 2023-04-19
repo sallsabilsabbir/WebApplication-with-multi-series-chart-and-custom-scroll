@@ -1,0 +1,121 @@
+﻿@model List<LivePower>
+@*@model IEnumerable<LivePower>*@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div class="text-center  font-weight-bolder text-secondary">
+        <p style="font-size:86px; color: royalblue;">@ViewBag.LastLivePower.LivePower1<span style="font-size:26px;" ;><sub>kW</sub></span></p>
+        
+    </div>
+    <div>
+        <table class="table table-striped  text-center" width="100%">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>LivePower</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewBag.LastLivePower.Time</td>
+                    <td>@ViewBag.LastLivePower.LivePower1</td>
+                       
+                 </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <br />
+
+</div>
+
+    <div class="text-center">
+        <p>
+            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseLivePower" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Show Live Power Data
+            </a>
+        </p>
+
+        <div class="collapse" id="collapseLivePower">
+            <table class="table table-striped" id="table_id">
+
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Live Power </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var livepower in Model)
+                    {
+                        <tr>
+                            <td> @livepower.Time </td>
+                            <td> @livepower.LivePower1 </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+   @* <div class="text-center">
+        <p> Live Power Tables</p>
+        <table class="table table-striped  text-center" width="100%" id="table_id">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>LivePower</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Time</td>
+                        <td>@item.LivePower1</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>*@
+
+
+
+@*<table>
+    <thead>
+        <tr>
+            <th>Time</th>
+            <th>LivePower1</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.LivePowerData)
+        {
+            <tr>
+                <td>@item.Time</td>
+                <td>@item.LivePower1</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
+            <th>Last Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.LastValue.LivePower1</td>
+        </tr>
+    </tbody>
+</table>*@

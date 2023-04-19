@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SavingsAndProfit>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <style>
+
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <br />
+    <div class="table-responsive tbl-scroll">
+        <h3 class="text-center border">  Savings And Profit Table </h3>
+
+        <table class=" table table-bordered table-striped  align-middle">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Gross Profit </th>
+                    <th> Robintex Savings </th>
+                    <th> Co2 Savings </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Time</td>
+                        <td>@obj.GrossProfit</td>
+                        <td>@obj.RobintexSavings</td>
+                        <td>@obj.Co2Savings</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

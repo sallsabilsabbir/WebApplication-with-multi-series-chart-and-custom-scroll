@@ -1,0 +1,149 @@
+﻿@model EnergyModels
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <div class="d-flex justify-content-evenly ">
+
+                                                            @*Change id and data target for all*@
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterAcPower" href="#collapseinverterAcPower" aria-expanded="true">
+                Todays Energy
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterDcPower" href="#collapseinverterDcPower" aria-expanded="true">
+               Todays Total Energy
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterEfficiency" href="#collapseinverterEfficiency" aria-expanded="true">
+                Yesterdays Energy
+            </button>
+        </p>
+        <p>
+            <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseinverterTotalAcPower" href="#collapseinverterTotalAcPower" aria-expanded="true">
+                Yesterdays Total Energy
+            </button>
+        </p>
+        
+    </div>
+
+    <div>
+
+        <div>
+            <div class="collapse" id="collapseinverterAcPower">
+
+                <h5 class="text-center text-black border">Todays Energy</h5>
+
+                <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id">
+                    <thead>
+                        <tr>
+                            <th>  Time </th>
+                            <th>  Todays Energy  </th>
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var todaysEnergy in Model.TodaysDatas)
+                        {
+                            <tr>
+                                <td> @todaysEnergy.Time </td>
+                                <td> @todaysEnergy.Energy </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterDcPower">
+
+            <h5 class="text-center text-black border">Todays Total Energy</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-2">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Todays Energy </th>
+                        
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var todaysTotalEnergy in Model.TodayPlantTotalEnergies)
+                    {
+                        <tr>
+                            <td> @todaysTotalEnergy.Time </td>
+                            <td> @todaysTotalEnergy.TptEnergy </td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterEfficiency">
+            <h5 class="text-center text-black border">Yesterdays Energy</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-3">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th>  Yesterdays Energy </th>
+                       
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var yesterdaysEnergy in Model.YesterdaysDatas)
+                    {
+                        <tr>
+                            <td> @yesterdaysEnergy.Time </td>
+                            <td> @yesterdaysEnergy.Energy </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*-------------------------------------------------------------------------------------------------------*@
+    <div>
+        <div class="collapse" id="collapseinverterTotalAcPower">
+
+            <h5 class="text-center text-black border">Yesterdays Total Energy</h5>
+
+            <table class="table table-striped table-responsive-md table-responsive-sm" id="table_id-4">
+                <thead>
+                    <tr>
+                        <th>  Time </th>
+                        <th> Yesterdays Total Energy </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var yesterdaysTotalEnergy in Model.YesterdayPlantTotalEnergies)
+                    {
+                        <tr>
+                            <td> @yesterdaysTotalEnergy.Time </td>
+                            <td> @yesterdaysTotalEnergy.YptEnergy </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+</div>
+

@@ -1,0 +1,98 @@
+﻿@model List<PoaAvg>
+
+@{
+    ViewData["Title"] = "Generation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <div>
+
+        <canvas id="myChart" style="max-height:350px; max-width:100%"></canvas>
+
+        @section scripts {
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/0.7.7/chartjs-plugin-zoom.min.js"></script>
+            <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: @Html.Raw(Json.Serialize(Model.Select(x => x.Time))),
+                        datasets: [{
+                            label: 'Poa Avg',
+                            data: @Html.Raw(Json.Serialize(Model.Select(x => x.PoaAvg1))),
+                            backgroundColor: 'rgba(58, 96, 246, 0.7)',
+                            borderColor: 'rgba(60, 56, 246, 1)',
+                            borderWidth: 1
+
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            xAxes: [{
+                                ticks: {
+                                    //maxTicksLimit: 20
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'X Axis Label'
+                                }
+                            }],
+                            yAxes: [{
+                                ticks: {
+
+                                    beginAtZero: true
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Y Axis Label'
+                                }
+                            }]
+                        },
+                        plugins: {
+                            zoom: {
+                                zoom: {
+                                    enabled: true,
+                                    mode: 'x'
+                                },
+                                pan: {
+                                    enabled: true,
+                                    mode: 'x'
+                                }
+                            }
+                        }
+                    }
+                });
+
+            </script>
+        }
+    </div>
+    <hr />
+
+    <div>
+        <table class="table table-striped" id="table_id">
+
+            <thead>
+                <tr>
+                    <th>  Time </th>
+                    <th>  PoaAvg </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (PoaAvg row in Model)
+                {
+                    <tr>
+                        @*<td> @row.Time </td>*@
+                        <td>@Html.DisplayFor(modelItem=>row.Time)</td>
+                        <td> @row.PoaAvg1 </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

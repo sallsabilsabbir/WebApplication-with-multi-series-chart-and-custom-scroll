@@ -1,0 +1,91 @@
+﻿@model List<TodaysDatum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <style>
+
+        .tbl-scroll {
+            display: block;
+            max-height: 550px;
+            overflow-y: scroll;
+            text-align: center;
+        }
+    </style>
+
+    <div class="text-center">
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Index">
+            <span>  All Data </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Energy">
+            <span>  Energy </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="Pr">
+            <span> Pr </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="AcMaxPower">
+            <span>  AcMaxPower </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="DcMaxPower">
+            <span>  DcMaxPower </span>
+        </a>
+        <a class="btn btn-primary text-white  btn-sm" asp-area="" asp-controller="TodaysData" asp-action="SpecificEnergy">
+            <span>  SpecificEnergy </span>
+        </a>
+        
+    </div>
+    @* <div class="row mt-2">
+        <div class="d-flex justify-content-evenly">
+            <a asp-area="" asp-controller="TodaysData" asp-action="Energy">
+                <div class="border" style="width:350px; height:150px;"></div>
+            </a>
+             <div class="border" style="width:350px; height:150px;"></div>
+             <div class="border" style="width:350px; height:150px;"></div>
+             
+         </div>
+     </div>
+    <br />
+    <div class="row mb-2">
+        <div class="d-flex justify-content-evenly">
+            <div class="border" style="width:350px; height:150px;"></div>
+            <div class="border" style="width:350px; height:150px;"></div>
+        </div>
+    </div>*@
+    <br />
+
+    <div class="table-responsive tbl-scroll">
+        <h5 class="text-center border"> Todays All Data </h5>
+
+        <table class=" table table-bordered table-striped  align-middle">
+            <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Energy </th>
+                    <th> Pr </th>
+                    <th> AcMaxPower </th>
+                    <th> DcMaxPower </th>
+                    <th> SpecificEnergy </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Time</td>
+                        <td>@obj.Energy</td>
+                        <td>@obj.Pr</td>
+                        <td>@obj.AcMaxPower</td>
+                        <td>@obj.DcMaxPower</td>
+                        <td>@obj.SpecificEnergy</td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
